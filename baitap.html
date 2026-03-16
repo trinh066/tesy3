@@ -2,155 +2,124 @@
 <html lang="vi">
 <head>
 <meta charset="UTF-8">
-<title>Trang web demo</title>
+<title>trang web c bé nha</title>
 
 <style>
+
 body{
     font-family: Arial;
-    margin:0;
-    background:#978181;
-}
-
-.container{
-    width:1000px;
-    margin:auto;
-}
-
-/* Banner */
-header{
-    background:url("https://images.pexels.com/photos/2563129/pexels-photo-2563129.jpeg") no-repeat center;
+    background-image:url(https://i.postimg.cc/jdFm7Ygt/anhdep.jpg);
     background-size:cover;
-    height:200px;
-    color:rgb(194, 181, 181);
+    background-repeat:no-repeat;
+    background-attachment:fixed;
+    background-position:center;
     text-align:center;
-    line-height:200px;
-    font-size:40px;
-    font-weight:bold;
 }
 
-/* Menu */
-nav{
-    background:#7c5757;
+h1{
+color:#ff4da6;
 }
 
-nav ul{
-    list-style:none;
-    margin:0;
-    padding:0;
+p{
+color:#ff69b4;
+font-size:22px;
+}
+
+/* nút lơ lửng */
+button{
+    padding:10px 20px;
+    font-size:16px;
+    background:#eb6f5f;
+    color:white;
+    border:none;
+    border-radius:5px;
+    position:fixed;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    cursor:pointer;
+}
+
+/* khu vực chứa ảnh */
+#gallery{
+    margin-top:100px;
     display:flex;
+    flex-wrap:wrap;
 }
 
-nav ul li{
-    flex:1;
+/* mỗi ảnh = 1/20 web */
+#gallery img{
+    width:5%;
 }
 
-nav ul li a{
-    display:block;
-    padding:15px;
-    text-align:center;
-    color:rgb(187, 89, 89);
-    text-decoration:none;
-}
-
-nav ul li a:hover{
-    background:#666;
-}
-
-/* Layout */
-.main{
-    display:flex;
-}
-
-/* Sidebar */
-aside{
-    width:25%;
-    background:#dfc8c8;
-    padding:20px;
-}
-
-/* Body */
-section{
-    width:75%;
-    background:rgb(134, 116, 116);
-    padding:20px;
-}
-
-/* Bài viết */
-.article{
-    margin-bottom:20px;
-}
-
-.article img{
-    width:100%;
-    height:200px;
-    object-fit:cover;
-}
-
-/* Footer */
-footer{
-    background:#682d2d;
-    text-align:center;
-    padding:15px;
-    font-weight:bold;
-}
 </style>
 </head>
 
 <body>
 
-<div class="container">
+<h1>nay c bé mệt lắm đúng hum 🥺</h1>
+<p>bé thương c nhìu ạ ❤️</p>
 
-<header>
-    WEBSITE DU LỊCH
-</header>
+<button onclick="themAnh()">bấm vô nha c iu</button>
 
-<nav>
-<ul>
-<li><a href="#">Trang chủ</a></li>
-<li><a href="#">Du lịch</a></li>
-<li><a href="#">Tin tức</a></li>
-<li><a href="#">Liên hệ</a></li>
-</ul>
-</nav>
+<div id="gallery"></div>
 
-<div class="main">
+<script>
 
-<aside>
-<h3>Đăng nhập</h3>
+/* danh sách ảnh */
+let danhSachAnh = [
+"https://i.postimg.cc/jdFm7Ygt/anhdep.jpg",
+"https://i.postimg.cc/xjtMgfVB/z5856344386475-b1999b349cc3fc293d90cb0e46743706.jpg"
+];
 
-<form>
-<label>Tài khoản</label><br>
-<input type="text" required><br><br>
+let i = 0;
 
-<label>Mật khẩu</label><br>
-<input type="password" required><br><br>
+/* bấm nút thêm ảnh theo thứ tự */
+function themAnh(){
 
-<input type="submit" value="Đăng nhập">
-</form>
+let img = document.createElement("img");
 
-</aside>
+img.src = danhSachAnh[i];
 
-<section>
+document.getElementById("gallery").appendChild(img);
 
-<div class="article">
-<h2>Bãi biển đẹp</h2>
-<img src="https://images.pexels.com/photos/1144176/pexels-photo-1144176.jpeg">
-<p>Đây là một trong những bãi biển đẹp nổi tiếng ở Việt Nam với cát trắng và nước trong xanh.</p>
-</div>
+i++;
 
-<div class="article">
-<h2>Du lịch Sầm Sơn</h2>
-<img src="https://images.pexels.com/photos/167699/pexels-photo-167699.jpeg">
-<p>Sầm Sơn là địa điểm du lịch nổi tiếng của Thanh Hóa thu hút nhiều khách du lịch.</p>
-</div>
+if(i >= danhSachAnh.length){
+i = 0;
+}
 
-</section>
+}
 
-</div>
+/* kéo nút */
+let btn = document.querySelector("button");
 
-<footer>
-Họ tên sinh viên – Lớp
-</footer>
+let isDragging = false;
+
+btn.addEventListener("mousedown", function(){
+isDragging = true;
+});
+
+document.addEventListener("mouseup", function(){
+isDragging = false;
+});
+
+document.addEventListener("mousemove", function(e){
+
+if(isDragging){
+
+btn.style.left = e.clientX + "px";
+btn.style.top = e.clientY + "px";
+btn.style.transform = "translate(-50%,-50%)";
+
+}
+
+});
+
+</script>
+
+</body>
+</html>
 
 </div>
 
