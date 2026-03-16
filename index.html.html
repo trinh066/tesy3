@@ -1,43 +1,65 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <title>trang wed c bé nha </title>
+<meta charset="UTF-8">
+<title>trang web c bé nha</title>
 
-    <style>
-        body{
-            font-family: Arial;
-            background-image:url(https://i.postimg.cc/jdFm7Ygt/anhdep.jpg);
-            background-repeat: no-repeat; 
-            background-position: center;
-            text-align: center;
-            margin-top: 100px;
-        }
+<style>
 
-        h1{
-            color: #766732;
-        }
+body{
+    font-family: Arial;
+    background-image:url(https://i.postimg.cc/jdFm7Ygt/anhdep.jpg);
+    background-repeat:no-repeat;
+    background-position:center;
+    text-align:center;
+}
 
-        p{
-            font-size: 22px;
-        }
+button{
+    padding:10px 20px;
+    font-size:16px;
+    background:#eb6f5f;
+    color:white;
+    border:none;
+    border-radius:5px;
+    margin-bottom:20px;
+}
 
-        button{
-            padding: 10px 20px;
-            font-size: 16px;
-            background: #eb6f5f;
-            color: white;
-            border: none;
-            border-radius: 5px;
-        }
-    </style>
+/* khu vực chứa ảnh */
+#gallery{
+    display:flex;
+    flex-wrap:wrap;
+}
+
+/* mỗi ảnh = 1/20 web */
+#gallery img{
+    width:5%;
+}
+
+</style>
 </head>
-<h1>nay c bé mệt lắm đúng hum</h1>  </h1>
-<p>bé thương c nhìu ạ</p>
 
-<button onclick="alert('bé yêu c hihi ')">
-bấm vô nha c iu
-</button>
+<body>
+
+<h1>nay c bé mệt lắm đúng hum 🥺</h1>
+<p>bé thương c nhìu ạ ❤️</p>
+
+<button onclick="themAnh()">bấm vô nha c iu</button>
+
+<div id="gallery"></div>
+
+<script>
+
+function themAnh(){
+
+    let img = document.createElement("img");
+
+    img.src = "https://i.postimg.cc/jdFm7Ygt/anhdep.jpg";
+
+    document.getElementById("gallery").appendChild(img);
+
+}
+
+</script>
 
 </body>
 </html>
