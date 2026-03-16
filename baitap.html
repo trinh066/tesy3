@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>Trang web demo</title>
+
+<style>
+body{
+    font-family: Arial;
+    margin:0;
+    background:#978181;
+}
+
+.container{
+    width:1000px;
+    margin:auto;
+}
+
+/* Banner */
+header{
+    background:url("https://images.pexels.com/photos/2563129/pexels-photo-2563129.jpeg") no-repeat center;
+    background-size:cover;
+    height:200px;
+    color:rgb(194, 181, 181);
+    text-align:center;
+    line-height:200px;
+    font-size:40px;
+    font-weight:bold;
+}
+
+/* Menu */
+nav{
+    background:#7c5757;
+}
+
+nav ul{
+    list-style:none;
+    margin:0;
+    padding:0;
+    display:flex;
+}
+
+nav ul li{
+    flex:1;
+}
+
+nav ul li a{
+    display:block;
+    padding:15px;
+    text-align:center;
+    color:rgb(187, 89, 89);
+    text-decoration:none;
+}
+
+nav ul li a:hover{
+    background:#666;
+}
+
+/* Layout */
+.main{
+    display:flex;
+}
+
+/* Sidebar */
+aside{
+    width:25%;
+    background:#dfc8c8;
+    padding:20px;
+}
+
+/* Body */
+section{
+    width:75%;
+    background:rgb(134, 116, 116);
+    padding:20px;
+}
+
+/* Bài viết */
+.article{
+    margin-bottom:20px;
+}
+
+.article img{
+    width:100%;
+    height:200px;
+    object-fit:cover;
+}
+
+/* Footer */
+footer{
+    background:#682d2d;
+    text-align:center;
+    padding:15px;
+    font-weight:bold;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<header>
+    WEBSITE DU LỊCH
+</header>
+
+<nav>
+<ul>
+<li><a href="#">Trang chủ</a></li>
+<li><a href="#">Du lịch</a></li>
+<li><a href="#">Tin tức</a></li>
+<li><a href="#">Liên hệ</a></li>
+</ul>
+</nav>
+
+<div class="main">
+
+<aside>
+<h3>Đăng nhập</h3>
+
+<form>
+<label>Tài khoản</label><br>
+<input type="text" required><br><br>
+
+<label>Mật khẩu</label><br>
+<input type="password" required><br><br>
+
+<input type="submit" value="Đăng nhập">
+</form>
+
+</aside>
+
+<section>
+
+<div class="article">
+<h2>Bãi biển đẹp</h2>
+<img src="https://images.pexels.com/photos/1144176/pexels-photo-1144176.jpeg">
+<p>Đây là một trong những bãi biển đẹp nổi tiếng ở Việt Nam với cát trắng và nước trong xanh.</p>
+</div>
+
+<div class="article">
+<h2>Du lịch Sầm Sơn</h2>
+<img src="https://images.pexels.com/photos/167699/pexels-photo-167699.jpeg">
+<p>Sầm Sơn là địa điểm du lịch nổi tiếng của Thanh Hóa thu hút nhiều khách du lịch.</p>
+</div>
+
+</section>
+
+</div>
+
+<footer>
+Họ tên sinh viên – Lớp
+</footer>
+
+</div>
+
+</body>
+</html>
