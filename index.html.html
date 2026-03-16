@@ -52,13 +52,26 @@ button{
 <script>
  
 
+let danhSachAnh = [
+"https://i.postimg.cc/jdFm7Ygt/anhdep.jpg",
+"https://i.postimg.cc/xjtMgfVB/z5856344386475-b1999b349cc3fc293d90cb0e46743706.jpg"
+];
+
+let i = 0;
+
 function themAnh(){
 
     let img = document.createElement("img");
 
-    img.src = "https://i.postimg.cc/jdFm7Ygt/anhdep.jpg","https://i.postimg.cc/xjtMgfVB/z5856344386475-b1999b349cc3fc293d90cb0e46743706.jpg";
+    img.src = danhSachAnh[i];
 
     document.getElementById("gallery").appendChild(img);
+
+    i++;
+
+    if(i >= danhSachAnh.length){
+        i = 0;
+    }
 
 }
 
