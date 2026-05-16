@@ -2,57 +2,86 @@
 <html lang="vi">
 <head>
 <meta charset="UTF-8">
-<title>trang web c bé nha</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trang web c bé nha</title>
 
 <style>
+*{
+    box-sizing: border-box;
+}
 
 body{
-    font-family: Arial;
-    background-image:url(https://i.postimg.cc/jdFm7Ygt/anhdep.jpg);
+    margin:0;
+    font-family: Arial, sans-serif;
+    background-image:url("https://i.postimg.cc/jdFm7Ygt/anhdep.jpg");
     background-size:cover;
     background-repeat:no-repeat;
     background-attachment:fixed;
     background-position:center;
     text-align:center;
+    min-height:100vh;
 }
 
 h1{
-color:#ff4da6;
+    color:#ff4da6;
+    margin-top:40px;
+    text-shadow:1px 1px 3px white;
 }
 
 p{
-color:#ff69b4;
-font-size:22px;
+    color:#ff69b4;
+    font-size:22px;
+    text-shadow:1px 1px 3px white;
 }
 
-/* nút lơ lửng */
+/* nút bấm */
 button{
-    padding:10px 20px;
-    font-size:15px;
+    padding:12px 22px;
+    font-size:16px;
     background:#eb6f5f;
     color:white;
     border:none;
-    border-radius:5px;
+    border-radius:20px;
     position:fixed;
     top:50%;
     left:50%;
     transform:translate(-50%,-50%);
     cursor:pointer;
+    z-index:999;
+    box-shadow:0 4px 10px rgba(0,0,0,0.3);
 }
 
-/* khu vực chứa ảnh */
+/* khu vực ảnh */
 #gallery{
-    margin-top:100px;
+    width:95%;
+    margin:120px auto 40px;
     display:flex;
     flex-wrap:wrap;
+    justify-content:center;
+    gap:8px;
 }
 
-/* mỗi ảnh = 1/20 web */
+/* ảnh không méo */
 #gallery img{
-    width:20%;
-    height:auto;
+    width:18%;
+    aspect-ratio:1 / 1;
+    object-fit:cover;
+    border-radius:10px;
+    pointer-events:none;
+    box-shadow:0 3px 8px rgba(0,0,0,0.3);
 }
 
+@media(max-width:768px){
+    #gallery img{
+        width:30%;
+    }
+}
+
+@media(max-width:480px){
+    #gallery img{
+        width:45%;
+    }
+}
 </style>
 </head>
 
@@ -61,15 +90,13 @@ button{
 <h1>nay c bé mệt lắm đúng hum 🥺</h1>
 <p>bé thương c nhìu ạ ❤️</p>
 
-<button onclick="themAnh()">bấm vô nha c iu</button>
+<button id="btn" onclick="themAnh()">bấm vô nha c iu</button>
 
 <div id="gallery"></div>
 
 <script>
-
-/* danh sách ảnh */
 let danhSachAnh = [
-   " https://i.postimg.cc/vBk2t214/IMG-20260414-050247.jpg",
+"https://i.postimg.cc/vBk2t214/IMG-20260414-050247.jpg",
 "https://i.postimg.cc/bNQV1TqQ/20260414-022129.jpg",
 "https://i.postimg.cc/yYFp0Ps2/20260414-023534.jpg",
 "https://i.postimg.cc/c4q5KjGG/IMG-20260414-050228.jpg",
@@ -122,54 +149,49 @@ let danhSachAnh = [
 
 let i = 0;
 
-/* bấm nút thêm ảnh theo thứ tự */
 function themAnh(){
+    let img = document.createElement("img");
+    img.src = danhSachAnh[i].trim();
+    img.alt = "ảnh yêu thương";
 
-let img = document.createElement("img");
+    document.getElementById("gallery").appendChild(img);
 
-img.src = danhSachAnh[i];
+    i++;
 
-document.getElementById("gallery").appendChild(img);
-
-i++;
-
-if(i >= danhSachAnh.length){
-i = 0;
+    if(i >= danhSachAnh.length){
+        i = 0;
+    }
 }
 
-}
-
-/* kéo nút */
-let btn = document.querySelector("button");
-
+/* kéo nút bằng chuột */
+let btn = document.getElementById("btn");
 let isDragging = false;
 
-btn.addEventListener("mousedown", function(){
-isDragging = true;
+btn.addEventListener("mousedown", function(e){
+    isDragging = true;
 });
 
 document.addEventListener("mouseup", function(){
-isDragging = false;
+    isDragging = false;
 });
 
 document.addEventListener("mousemove", function(e){
-
-if(isDragging){
-
-btn.style.left = e.clientX + "px";
-btn.style.top = e.clientY + "px";
-btn.style.transform = "translate(-50%,-50%)";
-
-}
-
+    if(isDragging){
+        btn.style.left = e.clientX + "px";
+        btn.style.top = e.clientY + "px";
+    }
 });
 
+/* kéo nút bằng điện thoại */
+btn.addEventListener("touchmove", function(e){
+    let touch = e.touches[0];
+
+    btn.style.left = touch.clientX + "px";
+    btn.style.top = touch.clientY + "px";
+
+    e.preventDefault();
+});
 </script>
-
-</body>
-</html>
-
-</div>
 
 </body>
 </html>
