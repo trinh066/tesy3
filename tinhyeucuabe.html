@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tỏ tình ❤️</title>
+
+    <style>
+
+        body{
+            margin: 0;
+            background: #ffe6f0;
+            font-family: Arial, sans-serif;
+        }
+
+        .khung{
+            width: 380px;
+            margin: 40px auto;
+            background: white;
+            border-radius: 25px;
+            padding: 20px;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        img{
+            width: 260px;
+            height: 260px;
+            object-fit: cover;
+            border-radius: 20px;
+        }
+
+        h2{
+            color: #ff2d8d;
+            font-size: 40px;
+            margin-top: 20px;
+        }
+
+        .nut{
+            width: 100%;
+            margin-top: 30px;
+            position: relative;
+            height: 120px;
+        }
+
+        button{
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        /* Nút CÓ */
+
+        #co{
+            width: 160px;
+            height: 80px;
+            background: #ff2d8d;
+            color: white;
+            font-size: 35px;
+            float: left;
+        }
+
+        /* Nút KHÔNG */
+
+        #khong{
+            width: 130px;
+            height: 65px;
+            background: gray;
+            color: white;
+            font-size: 22px;
+            float: right;
+            position: relative;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="khung">
+
+        <!-- ẢNH -->
+
+        <img id="anh"
+        src="https://i.ibb.co/B22mzYSQ/images-1.jpg">
+
+        <!-- CHỮ -->
+
+        <h2 id="text">
+            c có yêu e không
+        </h2>
+
+        <!-- NÚT -->
+
+        <div class="nut">
+
+            <button id="co" onclick="bamCo()">
+                có
+            </button>
+
+            <button id="khong" onclick="bamKhong()">
+                không
+            </button>
+
+        </div>
+
+    </div>
+
+    <script>
+
+        let size = 160;
+        let dichuyen = 0;
+
+        let ds = [
+            "không",
+            "c chắc chứ",
+            "suy nghĩ lại đi mà",
+            "e sẽ buồn lắm đó"
+        ];
+
+        let i = 0;
+
+        // BẤM KHÔNG
+
+        function bamKhong(){
+
+            // nút có to thêm 10%
+
+            size = size * 1.1;
+
+            let nutCo = document.getElementById("co");
+
+            nutCo.style.width = size + "px";
+
+            nutCo.style.height = (size * 0.5) + "px";
+
+            nutCo.style.fontSize = (size / 5) + "px";
+
+            // đẩy nút không qua phải
+
+            dichuyen += 40;
+
+            let nutKhong = document.getElementById("khong");
+
+            nutKhong.style.left = dichuyen + "px";
+
+            // đổi chữ nút không
+
+            if(i < ds.length - 1){
+                i++;
+            }
+
+            nutKhong.innerHTML = ds[i];
+        }
+
+        // BẤM CÓ
+
+        function bamCo(){
+
+            document.getElementById("anh").src =
+            "https://i.ibb.co/Cs398SXW/images.jpg";
+
+            document.getElementById("text").innerHTML =
+            "e biết c thương e nhất mà ❤️";
+        }
+
+    </script>
+
+</body>
+</html>
