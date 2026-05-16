@@ -112,6 +112,130 @@
 
         let size = 160;
         let dichuyen = 0;
+        let soLanBamCo = 0;
+
+        let ds = [
+            "không",
+            "c chắc chứ",
+            "suy nghĩ lại đi mà",
+            "e sẽ buồn lắm đó"
+        ];
+
+        let i = 0;
+
+        // BẤM KHÔNG
+
+        function bamKhong(){
+
+            // nút có to thêm 10%
+
+            size = size * 1.1;
+
+            let nutCo = document.getElementById("co");
+
+            nutCo.style.width = size + "px";
+
+            nutCo.style.height = (size * 0.5) + "px";
+
+            nutCo.style.fontSize = (size / 5) + "px";
+
+            // đẩy nút không qua phải
+
+            dichuyen += 40;
+
+            let nutKhong = document.getElementById("khong");
+
+            nutKhong.style.left = dichuyen + "px";
+
+            // đổi chữ
+
+            if(i < ds.length - 1){
+                i++;
+            }
+
+            nutKhong.innerHTML = ds[i];
+        }
+
+        // BẤM CÓ
+
+        function bamCo(){
+
+            soLanBamCo++;
+
+            // lần bấm đầu
+
+            if(soLanBamCo == 1){
+
+                document.getElementById("anh").src =
+                "https://i.ibb.co/Cs398SXW/images.jpg";
+
+                document.getElementById("text").innerHTML =
+                "e biết c thương e nhất mà ❤️";
+            }
+
+            // lần bấm thứ 2 chuyển trang
+
+            else if(soLanBamCo == 2){
+
+                window.location.href =
+                "https://trinh066.github.io/tesy3/index.html.html";
+            }
+        }
+
+    </script>
+
+</body>
+</html>
+        /* Nút KHÔNG */
+
+        #khong{
+            width: 130px;
+            height: 65px;
+            background: gray;
+            color: white;
+            font-size: 22px;
+            float: right;
+            position: relative;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="khung">
+
+        <!-- ẢNH -->
+
+        <img id="anh"
+        src="https://i.ibb.co/B22mzYSQ/images-1.jpg">
+
+        <!-- CHỮ -->
+
+        <h2 id="text">
+            c có yêu e không
+        </h2>
+
+        <!-- NÚT -->
+
+        <div class="nut">
+
+            <button id="co" onclick="bamCo()">
+                có
+            </button>
+
+            <button id="khong" onclick="bamKhong()">
+                không
+            </button>
+
+        </div>
+
+    </div>
+
+    <script>
+
+        let size = 160;
+        let dichuyen = 0;
 
         let ds = [
             "không",
